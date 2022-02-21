@@ -1,14 +1,38 @@
+import { state } from '@angular/animations';
 import { createReducer, on, props } from '@ngrx/store';
 import { customIncrement, decrement, increment, reset } from '../actions/counter.action';
 
-export const initialState = 0;
+export interface CounterState {
+    counter: number;
+    counterTitle: string;
+}
+
+export const initialState: CounterState = {
+    counter: 10,
+    counterTitle: 'hello'
+};
 
 const _counterReducer = createReducer(
     initialState,
-    on(increment, (state) => state + 1),
-    on(decrement, (state) => state - 1),
-    on(reset, (state) => 0),
-    on(customIncrement, (state, action) => state + action.payload)
+    on(increment, (state) => {
+        return {
+            ...state,
+            counter: state.counter + 1
+        };
+    }),
+    on(decrement, (state) => {
+        return {
+            ...state,
+            counter: state.counter - 1
+        };
+    }),
+    on(reset, (state) => ({ ...initialState })),
+    on(customIncrement, (state, action) => {
+        return {
+            ...state,
+            counter: state.counter + action.payload
+        };
+    })
 );
 
 export function counterReducer(state: any, action: any) {
