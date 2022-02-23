@@ -1,10 +1,16 @@
 <button (click)="increment()">Increment</button>
 
-<div>Current Count: {{ count$ | async }}</div>
-
 <button (click)="decrement()">Decrement</button>
 
 <button (click)="reset()">Reset Counter</button>
+
+<br />
+<br />
+<p>{{ counterTitle$ | async }}</p>
+<ng-container *ngIf="count$ | async as count">
+    <div>Current Count: {{ count }}</div>
+</ng-container>
+
 <br />
 <br />
 Enter Value: <input type="text" [(ngModel)]="value" />
