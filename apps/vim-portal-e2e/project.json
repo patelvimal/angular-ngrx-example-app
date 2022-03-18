@@ -1,0 +1,28 @@
+{
+  "root": "apps/vim-portal-e2e",
+  "sourceRoot": "apps/vim-portal-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/vim-portal-e2e/cypress.json",
+        "devServerTarget": "vim-portal:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "vim-portal:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/vim-portal-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["vim-portal"]
+}

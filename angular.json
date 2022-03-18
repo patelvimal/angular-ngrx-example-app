@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "vim-portal": "apps/vim-portal",
+    "vim-portal-e2e": "apps/vim-portal-e2e"
+  }
+}
