@@ -1,6 +1,13 @@
 <mat-toolbar>
     <span>LOGIN</span>
 </mat-toolbar>
+<mat-card>
+    <mat-card-content>
+        <ng-container *ngIf="user$ | async as user">
+            <p>{{ user | json }}</p>
+        </ng-container>
+    </mat-card-content>
+</mat-card>
 <mat-card class="my-card">
     <mat-card-content>
         <form class="my-form" [formGroup]="loginForm">
