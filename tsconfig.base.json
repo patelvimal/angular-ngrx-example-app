@@ -14,7 +14,10 @@
         "skipLibCheck": true,
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "@portal-ui/data-access/*": ["apps/vim-portal/src/app/core/data-access/*"],
+            "@portal-ui/data-models/*": ["apps/vim-portal/src/app/core/data-models/*"]
+        }
     },
     "exclude": ["node_modules", "tmp"]
 }
