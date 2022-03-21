@@ -16,7 +16,8 @@
         "baseUrl": ".",
         "paths": {
             "@portal-ui/data-access/*": ["apps/vim-portal/src/app/core/data-access/*"],
-            "@portal-ui/data-models/*": ["apps/vim-portal/src/app/core/data-models/*"]
+            "@portal-ui/data-models/*": ["apps/vim-portal/src/app/core/data-models/*"],
+            "@portal-ui/shared/*": ["apps/vim-portal/src/app/shared/*"]
         }
     },
     "exclude": ["node_modules", "tmp"]

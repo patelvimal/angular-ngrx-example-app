@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { User } from '@portal-ui/data-models/user.model';
 import { Observable } from 'rxjs';
+import { loadingStart } from '../../shared/components/loader/store/loader.action';
 import { login } from './store/login.actions';
 import { getCurrentUser } from './store/login.selector';
 
@@ -31,5 +32,6 @@ export class LoginComponent implements OnInit {
                 payload: this.loginForm.value
             })
         );
+        // this.store.dispatch(loadingStart());
     }
 }

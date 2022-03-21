@@ -14,12 +14,16 @@ import { MaterialModule } from './shared/material.module';
 import { CoreModule } from './core/core.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import * as fromLoader from './shared/components/loader/store/loader.reducer';
+import { metaReducers, reducers } from './reducers';
 
 @NgModule({
     declarations: [AppComponent, NxWelcomeComponent],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({}, {}),
+        StoreModule.forRoot(reducers, {
+            metaReducers
+        }),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
         EffectsModule.forRoot([]),
         StoreRouterConnectingModule.forRoot(),

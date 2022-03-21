@@ -3,10 +3,11 @@ import {
     Controller,
     Get,
     InternalServerErrorException,
-    Post
+    Post,
+    SerializeOptions
 } from '@nestjs/common';
 import { get } from 'http';
-import { Observable } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
 
 import { AppService } from './app.service';
 import { AuthModel } from './auth.model';
@@ -22,13 +23,13 @@ export class AuthController {
     }
 
     @Post()
-    login(@Body() auth: AuthModel): UserModel {
+    login(@Body() auth: AuthModel): Observable<UserModel> {
         console.log(auth);
         if (auth.userName == 'admin' && auth.password == 'admin') {
-            return {
+            return of({
                 email: 'admin@admin.com',
                 name: 'admin'
-            } as UserModel;
+            } as UserModel).pipe(delay(5000));
         }
         throw new InternalServerErrorException('UserName or Password is incorrect');
     }
